@@ -314,99 +314,42 @@
   });
 
   // =========================================================================
-  // 2. ROMANTIC PIANO AUDIO ENGINE (Web Audio API — 100% Reliable)
+  // 2. BACKGROUND MUSIC PLAYER (Мирбек Атабеков — Күндөр жаңырат)
   // =========================================================================
-  let audioCtx = null;
+  const bgMusic = document.getElementById('bg-music');
   let isPlayingAudio = false;
-  let melodyTimer = null;
-  let noteStep = 0;
 
-  // Romantic arpeggiated piano progression (inspired by Die With a Smile / River Flows in You)
-  const PIANO_SEQUENCE = [
-    { freq: 440.00, bass: 220.00, dur: 0.55 }, // A4
-    { freq: 493.88, bass: null,   dur: 0.55 }, // B4
-    { freq: 554.37, bass: 277.18, dur: 0.65 }, // C#5
-    { freq: 659.25, bass: null,   dur: 0.70 }, // E5
-    { freq: 587.33, bass: 293.66, dur: 0.55 }, // D5
-    { freq: 554.37, bass: null,   dur: 0.55 }, // C#5
-    { freq: 493.88, bass: 246.94, dur: 0.85 }, // B4
-    { freq: 440.00, bass: 185.00, dur: 0.55 }, // A4 / F#3
-    { freq: 554.37, bass: null,   dur: 0.55 }, // C#5
-    { freq: 659.25, bass: 329.63, dur: 0.65 }, // E5
-    { freq: 739.99, bass: null,   dur: 0.65 }, // F#5
-    { freq: 659.25, bass: 220.00, dur: 0.60 }, // E5
-    { freq: 554.37, bass: null,   dur: 0.60 }, // C#5
-    { freq: 493.88, bass: 164.81, dur: 0.95 }  // B4 / E3
-  ];
-
-  function playPianoTone(freq, duration, volume = 0.08) {
-    if (!audioCtx || !freq) return;
-    const now = audioCtx.currentTime;
-
-    const osc1 = audioCtx.createOscillator();
-    const osc2 = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    const filter = audioCtx.createBiquadFilter();
-
-    osc1.type = 'triangle';
-    osc2.type = 'sine';
-    osc1.frequency.setValueAtTime(freq, now);
-    osc2.frequency.setValueAtTime(freq * 2, now);
-
-    filter.type = 'lowpass';
-    filter.frequency.setValueAtTime(1850, now);
-
-    gain.gain.setValueAtTime(0.0001, now);
-    gain.gain.exponentialRampToValueAtTime(volume, now + 0.03);
-    gain.gain.exponentialRampToValueAtTime(0.0001, now + duration * 2.4);
-
-    osc1.connect(filter);
-    osc2.connect(filter);
-    filter.connect(gain);
-    gain.connect(audioCtx.destination);
-
-    osc1.start(now);
-    osc2.start(now);
-    osc1.stop(now + duration * 2.5);
-    osc2.stop(now + duration * 2.5);
-  }
-
-  function stepPianoMelody() {
-    if (!isPlayingAudio) return;
-    const item = PIANO_SEQUENCE[noteStep % PIANO_SEQUENCE.length];
-    playPianoTone(item.freq, item.dur, 0.075);
-    if (item.bass) {
-      playPianoTone(item.bass, item.dur * 1.6, 0.045);
-    }
-    noteStep++;
-    melodyTimer = window.setTimeout(stepPianoMelody, item.dur * 1000);
+  if (bgMusic) {
+    bgMusic.volume = 0.75;
+    bgMusic.addEventListener('play', () => {
+      isPlayingAudio = true;
+      updateAudioButtonLabel();
+    });
+    bgMusic.addEventListener('pause', () => {
+      isPlayingAudio = false;
+      updateAudioButtonLabel();
+    });
   }
 
   function startMusic() {
-    try {
-      if (!audioCtx) {
-        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-        audioCtx = new AudioContextClass();
-      }
-      if (audioCtx.state === 'suspended') {
-        audioCtx.resume();
-      }
-      if (!isPlayingAudio) {
-        isPlayingAudio = true;
-        stepPianoMelody();
-      }
-      updateAudioButtonLabel();
-    } catch (e) {
-      console.warn('Web Audio API blocked or unavailable:', e);
+    if (!bgMusic) return;
+    const playPromise = bgMusic.play();
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          isPlayingAudio = true;
+          updateAudioButtonLabel();
+        })
+        .catch((err) => {
+          console.warn('Audio playback waiting for user gesture:', err);
+        });
     }
   }
 
   function stopMusic() {
+    if (!bgMusic) return;
+    bgMusic.pause();
     isPlayingAudio = false;
-    if (melodyTimer) {
-      clearTimeout(melodyTimer);
-      melodyTimer = null;
-    }
     updateAudioButtonLabel();
   }
 

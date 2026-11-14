@@ -65,7 +65,12 @@
     </div>
   </header>
 
-  <button type="button" id="audio-toggle-btn" class="floating-audio-btn" aria-label="Включить музыку" title="Включить / Выключить музыку">
+  <audio id="bg-music" loop preload="auto">
+    <source src="audio/kundor-janyrat.webm" type="audio/webm" />
+    <source src="audio/kundor-janyrat.m4a" type="audio/mp4" />
+  </audio>
+
+  <button type="button" id="audio-toggle-btn" class="floating-audio-btn" aria-label="Включить музыку" title="Мирбек Атабеков — Күндөр жаңырат">
     <span class="audio-bars" aria-hidden="true">
       <span></span><span></span><span></span><span></span>
     </span>
