@@ -533,16 +533,12 @@
   // 8. FIREBASE CLOUD FIRESTORE SYNC HELPERS + GUEST RSVP (#rsvp)
   // =========================================================================
   const fbConfig = window.FIREBASE_CONFIG || {};
+  const INVITATION_ID = fbConfig.invitationId || 'aybek-asel-2027';
 
-  async function saveToFirestore(collectionName, fieldsObj) {
+  async function saveToFirestore(collectionName, firestoreFields) {
     if (!fbConfig.projectId) return null;
     const baseUrl = `https://firestore.googleapis.com/v1/projects/${encodeURIComponent(fbConfig.projectId)}/databases/(default)/documents/${encodeURIComponent(collectionName)}`;
     const url = fbConfig.apiKey ? `${baseUrl}?key=${encodeURIComponent(fbConfig.apiKey)}` : baseUrl;
-
-    const firestoreFields = {};
-    Object.entries(fieldsObj).forEach(([k, v]) => {
-      firestoreFields[k] = { stringValue: String(v) };
-    });
 
     try {
       const res = await fetch(url, {
@@ -560,23 +556,44 @@
 
   async function loadWishesFromFirestore() {
     if (!fbConfig.projectId) return;
-    const col = fbConfig.wishesCollection || 'aybek_asel_wishes';
-    const baseUrl = `https://firestore.googleapis.com/v1/projects/${encodeURIComponent(fbConfig.projectId)}/databases/(default)/documents/${encodeURIComponent(col)}?pageSize=50`;
-    const url = fbConfig.apiKey ? `${baseUrl}&key=${encodeURIComponent(fbConfig.apiKey)}` : baseUrl;
+    const col = fbConfig.wishesCollection || 'wishes';
+    const baseUrl = `https://firestore.googleapis.com/v1/projects/${encodeURIComponent(fbConfig.projectId)}/databases/(default)/documents:runQuery`;
+    const url = fbConfig.apiKey ? `${baseUrl}?key=${encodeURIComponent(fbConfig.apiKey)}` : baseUrl;
 
     try {
-      const res = await fetch(url);
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          structuredQuery: {
+            from: [{ collectionId: col }],
+            where: {
+              fieldFilter: {
+                field: { fieldPath: 'invitationId' },
+                op: 'EQUAL',
+                value: { stringValue: INVITATION_ID }
+              }
+            }
+          }
+        })
+      });
       if (!res.ok) return;
-      const data = await res.json();
-      if (!Array.isArray(data.documents)) return;
-      const remoteWishes = data.documents
+      const rows = await res.json();
+      if (!Array.isArray(rows)) return;
+      const remoteWishes = rows
+        .map((r) => r.document)
+        .filter(Boolean)
         .map((doc) => {
           const f = doc.fields || {};
+          const rawTime = f.createdAt?.timestampValue || f.createdAt?.stringValue || doc.createTime || '';
+          const parsedDate = rawTime
+            ? new Date(rawTime).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' })
+            : '';
           return {
-            author: f.author?.stringValue || 'Гость',
-            text: f.text?.stringValue || '',
-            date: f.date?.stringValue || '',
-            createdAt: f.createdAt?.stringValue || doc.createTime || ''
+            author: f.name?.stringValue || f.author?.stringValue || 'Гость',
+            text: f.message?.stringValue || f.text?.stringValue || '',
+            date: parsedDate,
+            createdAt: rawTime
           };
         })
         .filter((w) => w.text)
@@ -605,10 +622,11 @@
         return;
       }
       const attendance = rsvpForm.querySelector('input[name="attendance"]:checked')?.value || 'yes';
+      const nowIso = new Date().toISOString();
       const record = {
         name: guestName,
         attendance,
-        submittedAt: new Date().toISOString()
+        submittedAt: nowIso
       };
 
       try {
@@ -617,7 +635,12 @@
         localStorage.setItem('aybek_asel_rsvp', JSON.stringify(existing));
       } catch (_) {}
 
-      await saveToFirestore(fbConfig.rsvpCollection || 'aybek_asel_rsvp', record);
+      await saveToFirestore(fbConfig.rsvpCollection || 'rsvps', {
+        name: { stringValue: guestName },
+        attendance: { stringValue: attendance === 'yes' ? 'Келемин' : 'Келе албайм' },
+        invitationId: { stringValue: INVITATION_ID },
+        createdAt: { timestampValue: nowIso }
+      });
 
       const template = attendance === 'yes'
         ? I18N[currentLang]['rsvp.successYes']
@@ -738,7 +761,12 @@
         localStorage.setItem('aybek_asel_wishes', JSON.stringify(custom));
       } catch (_) {}
 
-      await saveToFirestore(fbConfig.wishesCollection || 'aybek_asel_wishes', newWish);
+      await saveToFirestore(fbConfig.wishesCollection || 'wishes', {
+        name: { stringValue: author },
+        message: { stringValue: text },
+        invitationId: { stringValue: INVITATION_ID },
+        createdAt: { timestampValue: newWish.createdAt }
+      });
 
       wishForm.reset();
       if (wishCharCounter) wishCharCounter.textContent = '0 / 600';

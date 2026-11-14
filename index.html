@@ -664,6 +664,16 @@
   </div>
 
   <script src="firebase-config.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
+    if (window.FIREBASE_CONFIG && window.FIREBASE_CONFIG.apiKey) {
+      const app = initializeApp(window.FIREBASE_CONFIG);
+      try {
+        getAnalytics(app);
+      } catch (_) {}
+    }
+  </script>
   <script src="app.js"></script>
 </body>
 </html>
