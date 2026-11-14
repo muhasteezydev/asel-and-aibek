@@ -19,6 +19,13 @@
       'envelope.cta': 'Нажмите, чтобы открыть приглашение',
       'audio.play': 'Включить музыку',
       'audio.pause': 'Выключить музыку',
+      'nav.invitation': 'Приглашение',
+      'nav.gallery': 'Фотосессия',
+      'nav.date': 'Дата',
+      'nav.program': 'Программа',
+      'nav.venue': 'Локация',
+      'nav.dresscode': 'Dress Code',
+      'nav.rsvp': 'Анкета',
       'hero.modeBW': 'Ч/Б Эдиториал',
       'hero.modeColor': 'В цвете',
       'hero.monthShort': 'NOV',
@@ -107,6 +114,13 @@
       'envelope.cta': 'Чакырууну ачуу үчүн басыңыз',
       'audio.play': 'Музыканы ойнотуу',
       'audio.pause': 'Музыканы өчүрүү',
+      'nav.invitation': 'Чакыруу',
+      'nav.gallery': 'Фотосессия',
+      'nav.date': 'Күнү',
+      'nav.program': 'Программа',
+      'nav.venue': 'Дарек',
+      'nav.dresscode': 'Dress Code',
+      'nav.rsvp': 'Анкета',
       'hero.modeBW': 'Ак-кара стиль',
       'hero.modeColor': 'Түстүү',
       'hero.monthShort': 'НОЯ',
@@ -195,6 +209,13 @@
       'envelope.cta': 'Click to open invitation',
       'audio.play': 'Play music',
       'audio.pause': 'Pause music',
+      'nav.invitation': 'Invitation',
+      'nav.gallery': 'Photoshoot',
+      'nav.date': 'Save the Date',
+      'nav.program': 'Program',
+      'nav.venue': 'Venue',
+      'nav.dresscode': 'Dress Code',
+      'nav.rsvp': 'RSVP',
       'hero.modeBW': 'B&W Editorial',
       'hero.modeColor': 'Full Color',
       'hero.monthShort': 'NOV',
@@ -395,6 +416,7 @@
   // 4. HERO PHOTO COLOR / B&W EDITORIAL MODE SWITCHER
   // =========================================================================
   const heroMainPhoto = document.getElementById('hero-main-photo');
+  const heroSidePhoto = document.getElementById('hero-side-photo');
   document.querySelectorAll('[data-hero-mode]').forEach((chip) => {
     chip.addEventListener('click', () => {
       const mode = chip.getAttribute('data-hero-mode');
@@ -402,6 +424,9 @@
       chip.classList.add('active');
       if (heroMainPhoto) {
         heroMainPhoto.classList.toggle('bw-editorial-img', mode === 'bw');
+      }
+      if (heroSidePhoto) {
+        heroSidePhoto.classList.toggle('bw-editorial-img', mode === 'bw');
       }
     });
   });

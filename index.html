@@ -57,6 +57,15 @@
   <header class="floating-header" id="floating-header">
     <div class="header-inner">
       <a href="#hero" class="brand-monogram" aria-label="Aybek & Asel">A <span>&amp;</span> A</a>
+      <nav class="desktop-nav" aria-label="Навигация по приглашению">
+        <a href="#invitation" data-i18n="nav.invitation">Приглашение</a>
+        <a href="#gallery" data-i18n="nav.gallery">Фотосессия</a>
+        <a href="#countdown" data-i18n="nav.date">Дата</a>
+        <a href="#program" data-i18n="nav.program">Программа</a>
+        <a href="#venue" data-i18n="nav.venue">Локация</a>
+        <a href="#dresscode" data-i18n="nav.dresscode">Dress Code</a>
+        <a href="#rsvp" data-i18n="nav.rsvp">Анкета</a>
+      </nav>
       <div class="lang-switcher" role="group" aria-label="Language switcher">
         <button type="button" class="lang-btn active" data-lang="ru">RU</button>
         <button type="button" class="lang-btn" data-lang="kg">KG</button>
@@ -99,28 +108,37 @@
           <button type="button" class="photo-mode-chip" data-hero-mode="color" data-i18n="hero.modeColor">В цвете</button>
         </div>
 
-        <div class="hero-content">
-          <div class="hero-top-meta">
-            <p class="hero-save-date">SAVE THE DATE</p>
-            <p class="hero-couple-caps">AYBEK &amp; ASEL</p>
-            <div class="hero-divider-line"></div>
+        <div class="hero-inner-grid">
+          <div class="hero-content">
+            <div class="hero-top-meta">
+              <p class="hero-save-date">SAVE THE DATE</p>
+              <p class="hero-couple-caps">AYBEK &amp; ASEL</p>
+              <div class="hero-divider-line"></div>
+            </div>
+
+            <div class="hero-date-stack" aria-label="06 November 2027">
+              <span class="date-num">06</span>
+              <span class="date-month" data-i18n="hero.monthShort">NOV</span>
+              <span class="date-year">27</span>
+            </div>
+
+            <div class="hero-bottom-meta">
+              <div class="hero-divider-line"></div>
+              <p class="hero-bottom-caption" data-i18n="hero.bottomTag">OUR WEDDING</p>
+              <a href="#invitation" class="hero-scroll-link" aria-label="Scroll to invitation">
+                <span data-i18n="hero.scrollText">Открыть приглашение</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
           </div>
 
-          <div class="hero-date-stack" aria-label="06 November 2027">
-            <span class="date-num">06</span>
-            <span class="date-month" data-i18n="hero.monthShort">NOV</span>
-            <span class="date-year">27</span>
-          </div>
-
-          <div class="hero-bottom-meta">
-            <div class="hero-divider-line"></div>
-            <p class="hero-bottom-caption" data-i18n="hero.bottomTag">OUR WEDDING</p>
-            <a href="#invitation" class="hero-scroll-link" aria-label="Scroll to invitation">
-              <span data-i18n="hero.scrollText">Открыть приглашение</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
+          <div class="hero-desktop-portrait">
+            <div class="hero-portrait-frame">
+              <img src="photos/asel-hero.jpg" alt="Asel — Bridal Portrait" id="hero-side-photo" class="hero-side-img bw-editorial-img" />
+              <div class="hero-portrait-badge">Aybek &amp; Asel · 06.11.2027</div>
+            </div>
           </div>
         </div>
       </section>
@@ -167,81 +185,85 @@
             </div>
           </div>
 
-          <div class="carousel-viewport" id="gallery-viewport">
-            <div class="carousel-track" id="gallery-track">
-              <!-- Slide 1 -->
-              <figure class="carousel-slide active" data-index="0">
-                <div class="slide-img-wrap">
-                  <img src="photos/asel-hero.jpg" alt="Asel — Свадебный портрет на террасе виллы" loading="lazy" />
-                </div>
-                <figcaption class="slide-caption">
-                  <span class="slide-title" data-i18n="gallery.slide1Title">Вечерний свет и кружевная фата</span>
-                  <span class="slide-meta">Asel · Bridal Couture 2027</span>
-                </figcaption>
-              </figure>
+          <div class="gallery-desktop-layout">
+            <div class="gallery-main-col">
+              <div class="carousel-viewport" id="gallery-viewport">
+                <div class="carousel-track" id="gallery-track">
+                  <!-- Slide 1 -->
+                  <figure class="carousel-slide active" data-index="0">
+                    <div class="slide-img-wrap">
+                      <img src="photos/asel-hero.jpg" alt="Asel — Свадебный портрет на террасе виллы" loading="lazy" />
+                    </div>
+                    <figcaption class="slide-caption">
+                      <span class="slide-title" data-i18n="gallery.slide1Title">Вечерний свет и кружевная фата</span>
+                      <span class="slide-meta">Asel · Bridal Couture 2027</span>
+                    </figcaption>
+                  </figure>
 
-              <!-- Slide 2 -->
-              <figure class="carousel-slide" data-index="1">
-                <div class="slide-img-wrap">
-                  <img src="photos/asel-full-gown.jpg" alt="Asel — Полный образ в свадебном платье" loading="lazy" />
-                </div>
-                <figcaption class="slide-caption">
-                  <span class="slide-title" data-i18n="gallery.slide2Title">Классический силуэт свадебного платья</span>
-                  <span class="slide-meta">Asel · Fine Art Editorial</span>
-                </figcaption>
-              </figure>
+                  <!-- Slide 2 -->
+                  <figure class="carousel-slide" data-index="1">
+                    <div class="slide-img-wrap">
+                      <img src="photos/asel-full-gown.jpg" alt="Asel — Полный образ в свадебном платье" loading="lazy" />
+                    </div>
+                    <figcaption class="slide-caption">
+                      <span class="slide-title" data-i18n="gallery.slide2Title">Классический силуэт свадебного платья</span>
+                      <span class="slide-meta">Asel · Fine Art Editorial</span>
+                    </figcaption>
+                  </figure>
 
-              <!-- Slide 3 -->
-              <figure class="carousel-slide" data-index="2">
-                <div class="slide-img-wrap">
-                  <img src="photos/asel-closeup.jpg" alt="Asel — Крупный портрет невесты" loading="lazy" />
-                </div>
-                <figcaption class="slide-caption">
-                  <span class="slide-title" data-i18n="gallery.slide3Title">Нежность и сияние</span>
-                  <span class="slide-meta">Asel · Bridal Beauty Portrait</span>
-                </figcaption>
-              </figure>
+                  <!-- Slide 3 -->
+                  <figure class="carousel-slide" data-index="2">
+                    <div class="slide-img-wrap">
+                      <img src="photos/asel-closeup.jpg" alt="Asel — Крупный портрет невесты" loading="lazy" />
+                    </div>
+                    <figcaption class="slide-caption">
+                      <span class="slide-title" data-i18n="gallery.slide3Title">Нежность и сияние</span>
+                      <span class="slide-meta">Asel · Bridal Beauty Portrait</span>
+                    </figcaption>
+                  </figure>
 
-              <!-- Slide 4 -->
-              <figure class="carousel-slide" data-index="3">
-                <div class="slide-img-wrap">
-                  <img src="photos/asel-bw-editorial.jpg" alt="Asel — Чёрно-белый свадебный эдиториал" loading="lazy" />
+                  <!-- Slide 4 -->
+                  <figure class="carousel-slide" data-index="3">
+                    <div class="slide-img-wrap">
+                      <img src="photos/asel-bw-editorial.jpg" alt="Asel — Чёрно-белый свадебный эдиториал" loading="lazy" />
+                    </div>
+                    <figcaption class="slide-caption">
+                      <span class="slide-title" data-i18n="gallery.slide4Title">Вневременная монохромная классика</span>
+                      <span class="slide-meta">Asel · Monochrome Edition</span>
+                    </figcaption>
+                  </figure>
                 </div>
-                <figcaption class="slide-caption">
-                  <span class="slide-title" data-i18n="gallery.slide4Title">Вневременная монохромная классика</span>
-                  <span class="slide-meta">Asel · Monochrome Edition</span>
-                </figcaption>
-              </figure>
+
+                <button type="button" class="carousel-nav prev" id="gallery-prev" aria-label="Предыдущее фото">&#8592;</button>
+                <button type="button" class="carousel-nav next" id="gallery-next" aria-label="Следующее фото">&#8594;</button>
+              </div>
+
+              <div class="carousel-footer">
+                <div class="carousel-dots" id="gallery-dots" role="tablist">
+                  <button type="button" class="dot active" data-slide="0" aria-label="Фото 1"></button>
+                  <button type="button" class="dot" data-slide="1" aria-label="Фото 2"></button>
+                  <button type="button" class="dot" data-slide="2" aria-label="Фото 3"></button>
+                  <button type="button" class="dot" data-slide="3" aria-label="Фото 4"></button>
+                </div>
+                <span class="carousel-counter" id="gallery-counter">1 / 4</span>
+              </div>
             </div>
 
-            <button type="button" class="carousel-nav prev" id="gallery-prev" aria-label="Предыдущее фото">&#8592;</button>
-            <button type="button" class="carousel-nav next" id="gallery-next" aria-label="Следующее фото">&#8594;</button>
-          </div>
-
-          <div class="carousel-footer">
-            <div class="carousel-dots" id="gallery-dots" role="tablist">
-              <button type="button" class="dot active" data-slide="0" aria-label="Фото 1"></button>
-              <button type="button" class="dot" data-slide="1" aria-label="Фото 2"></button>
-              <button type="button" class="dot" data-slide="2" aria-label="Фото 3"></button>
-              <button type="button" class="dot" data-slide="3" aria-label="Фото 4"></button>
+            <!-- Thumbnail Grid for instant preview -->
+            <div class="gallery-thumbs">
+              <button type="button" class="thumb-btn active" data-slide="0">
+                <img src="photos/asel-hero.jpg" alt="Кадр 1" />
+              </button>
+              <button type="button" class="thumb-btn" data-slide="1">
+                <img src="photos/asel-full-gown.jpg" alt="Кадр 2" />
+              </button>
+              <button type="button" class="thumb-btn" data-slide="2">
+                <img src="photos/asel-closeup.jpg" alt="Кадр 3" />
+              </button>
+              <button type="button" class="thumb-btn" data-slide="3">
+                <img src="photos/asel-bw-editorial.jpg" alt="Кадр 4" />
+              </button>
             </div>
-            <span class="carousel-counter" id="gallery-counter">1 / 4</span>
-          </div>
-
-          <!-- Thumbnail Grid for instant preview -->
-          <div class="gallery-thumbs">
-            <button type="button" class="thumb-btn active" data-slide="0">
-              <img src="photos/asel-hero.jpg" alt="Кадр 1" />
-            </button>
-            <button type="button" class="thumb-btn" data-slide="1">
-              <img src="photos/asel-full-gown.jpg" alt="Кадр 2" />
-            </button>
-            <button type="button" class="thumb-btn" data-slide="2">
-              <img src="photos/asel-closeup.jpg" alt="Кадр 3" />
-            </button>
-            <button type="button" class="thumb-btn" data-slide="3">
-              <img src="photos/asel-bw-editorial.jpg" alt="Кадр 4" />
-            </button>
           </div>
         </div>
       </section>
@@ -382,46 +404,59 @@
 
       <!-- =================================================================
            SECTION 6: LOCATION & INTERACTIVE MAP (#venue)
-           Design: Stylized "L OO CATION" interlocking header from reference image
            Venue: Uluu Too Banquet Hall (г. Бишкек, ул. Сухэ-Батора, 5)
            Link: https://maps.app.goo.gl/ZCR7aL3gAXBYKn867
            ================================================================= -->
       <section id="venue" class="section-padded">
         <div class="venue-block reveal-on-scroll">
-          <p class="section-overline" data-i18n="venue.overline">МЕСТО ТОРЖЕСТВА</p>
-          <h2 class="serif-heading">LOCATION</h2>
+          <div class="venue-info-col">
+            <p class="section-overline" data-i18n="venue.overline">МЕСТО ТОРЖЕСТВА</p>
+            <h2 class="serif-heading">LOCATION</h2>
 
-          <h3 class="venue-name" data-i18n="venue.name">Банкетный зал «Улуу Тоо»</h3>
-          <p class="venue-address" data-i18n="venue.address">г. Бишкек, ул. Сухэ-Батора, 5 (Uluu Too Banquet Hall)</p>
+            <h3 class="venue-name" data-i18n="venue.name">Банкетный зал «Улуу Тоо»</h3>
+            <p class="venue-address" data-i18n="venue.address">г. Бишкек, ул. Сухэ-Батора, 5 (Uluu Too Banquet Hall)</p>
 
-          <div class="map-frame-wrapper">
-            <iframe
-              title="Карта — Банкетный зал Улуу Тоо, ул. Сухэ-Батора, 5, Бишкек"
-              src="https://maps.google.com/maps?q=42.8280414,74.6266351&hl=ru&z=16&output=embed"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              class="venue-map-iframe">
-            </iframe>
-            <div class="map-floating-bar">
+            <div class="venue-actions desktop-venue-actions">
               <a
                 href="https://maps.app.goo.gl/ZCR7aL3gAXBYKn867"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="map-route-chip">
-                <span class="pin-dot" aria-hidden="true"></span>
-                <span data-i18n="venue.directionsChip">Как добраться · Google Maps</span>
+                class="solid-dark-btn venue-map-btn">
+                <span data-i18n="venue.openMapBtn">ПОСМОТРЕТЬ НА КАРТЕ</span>
               </a>
             </div>
           </div>
 
-          <div class="venue-actions">
-            <a
-              href="https://maps.app.goo.gl/ZCR7aL3gAXBYKn867"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="solid-dark-btn venue-map-btn">
-              <span data-i18n="venue.openMapBtn">ПОСМОТРЕТЬ НА КАРТЕ</span>
-            </a>
+          <div class="venue-map-col">
+            <div class="map-frame-wrapper">
+              <iframe
+                title="Карта — Банкетный зал Улуу Тоо, ул. Сухэ-Батора, 5, Бишкек"
+                src="https://maps.google.com/maps?q=42.8280414,74.6266351&hl=ru&z=16&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                class="venue-map-iframe">
+              </iframe>
+              <div class="map-floating-bar">
+                <a
+                  href="https://maps.app.goo.gl/ZCR7aL3gAXBYKn867"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="map-route-chip">
+                  <span class="pin-dot" aria-hidden="true"></span>
+                  <span data-i18n="venue.directionsChip">Как добраться · Google Maps</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="venue-actions mobile-venue-actions">
+              <a
+                href="https://maps.app.goo.gl/ZCR7aL3gAXBYKn867"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="solid-dark-btn venue-map-btn">
+                <span data-i18n="venue.openMapBtn">ПОСМОТРЕТЬ НА КАРТЕ</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -433,36 +468,38 @@
            ================================================================= -->
       <section id="dresscode" class="section-padded">
         <article class="white-card dresscode-card reveal-on-scroll">
-          <p class="section-overline" data-i18n="dresscode.overline">ЦВЕТА И СТИЛЬ НАШЕГО ПРАЗДНИКА</p>
-          <h2 class="serif-heading">DRESS CODE</h2>
-          <p class="script-subtitle">Dress code</p>
+          <div class="dresscode-info-col">
+            <p class="section-overline" data-i18n="dresscode.overline">ЦВЕТА И СТИЛЬ НАШЕГО ПРАЗДНИКА</p>
+            <h2 class="serif-heading">DRESS CODE</h2>
+            <p class="script-subtitle">Dress code</p>
 
-          <div class="dresscode-copy">
-            <p data-i18n="dresscode.men">
-              Для мужчин уместным будет классический костюм.
-            </p>
-            <p data-i18n="dresscode.women">
-              А милых дам просим выбрать вечерние наряды и избегать белого цвета.
-            </p>
-          </div>
+            <div class="dresscode-copy">
+              <p data-i18n="dresscode.men">
+                Для мужчин уместным будет классический костюм.
+              </p>
+              <p data-i18n="dresscode.women">
+                А милых дам просим выбрать вечерние наряды и избегать белого цвета.
+              </p>
+            </div>
 
-          <!-- Palette Swatches (from nuraida-invitation structure) -->
-          <div class="palette-row" aria-label="Палитра торжества">
-            <div class="swatch-item">
-              <span class="swatch-circle" style="background: #141414;"></span>
-              <span class="swatch-name" data-i18n="dresscode.color1">Чёрный</span>
-            </div>
-            <div class="swatch-item">
-              <span class="swatch-circle" style="background: #4A4845;"></span>
-              <span class="swatch-name" data-i18n="dresscode.color2">Графит</span>
-            </div>
-            <div class="swatch-item">
-              <span class="swatch-circle" style="background: #C8B9A6;"></span>
-              <span class="swatch-name" data-i18n="dresscode.color3">Шампань</span>
-            </div>
-            <div class="swatch-item">
-              <span class="swatch-circle" style="background: #E6DFD5;"></span>
-              <span class="swatch-name" data-i18n="dresscode.color4">Кремовый</span>
+            <!-- Palette Swatches (from nuraida-invitation structure) -->
+            <div class="palette-row" aria-label="Палитра торжества">
+              <div class="swatch-item">
+                <span class="swatch-circle" style="background: #141414;"></span>
+                <span class="swatch-name" data-i18n="dresscode.color1">Чёрный</span>
+              </div>
+              <div class="swatch-item">
+                <span class="swatch-circle" style="background: #4A4845;"></span>
+                <span class="swatch-name" data-i18n="dresscode.color2">Графит</span>
+              </div>
+              <div class="swatch-item">
+                <span class="swatch-circle" style="background: #C8B9A6;"></span>
+                <span class="swatch-name" data-i18n="dresscode.color3">Шампань</span>
+              </div>
+              <div class="swatch-item">
+                <span class="swatch-circle" style="background: #E6DFD5;"></span>
+                <span class="swatch-name" data-i18n="dresscode.color4">Кремовый</span>
+              </div>
             </div>
           </div>
 
@@ -480,9 +517,10 @@
       </section>
 
       <!-- =================================================================
-           SECTION 8: GUEST QUESTIONNAIRE / RSVP (#rsvp)
-           Design: Exact match to "АНКЕТА ГОСТЯ" in the reference design
+           SECTIONS 8 & 9: GUEST RSVP (#rsvp) + WISHES GUESTBOOK (#guestbook)
+           Side-by-side on Laptop/Desktop, stacked on Mobile
            ================================================================= -->
+      <div class="desktop-split-pair">
       <section id="rsvp" class="section-padded">
         <div class="rsvp-block reveal-on-scroll">
           <h2 class="serif-heading" data-i18n="rsvp.heading">
@@ -602,6 +640,7 @@
           </div>
         </article>
       </section>
+      </div>
 
       <!-- =================================================================
            SECTION 10: SOCIAL SHARING (#share)
