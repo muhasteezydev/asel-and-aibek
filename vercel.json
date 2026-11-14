@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "name": "aybek-asel-invitation",
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

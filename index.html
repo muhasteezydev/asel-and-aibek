@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Aybek &amp; Asel — Wedding Invitation · 06.11.2027</title>
+  <meta name="description" content="Приглашение на свадьбу Айбека и Асель · 6 ноября 2027 · Банкетный зал «Улуу Тоо», г. Бишкек, ул. Сухэ-Батора, 5" />
+  <meta property="og:title" content="Aybek &amp; Asel — Свадебное приглашение · 06.11.2027" />
+  <meta property="og:description" content="Один день в этом году будет для нас особенным, и мы хотим провести его в кругу близких и друзей. 6 ноября 2027 · Банкетный зал «Улуу Тоо», Бишкек." />
+  <meta property="og:image" content="photos/asel-hero.jpg" />
+
+  <!-- Google Fonts: Editorial Serif, Calligraphic Script, Clean Geometric Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Great+Vibes&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Ambient Blurred Backdrop (visible on tablet/desktop like @jul.design.ru showcase) -->
+  <div class="ambient-backdrop" aria-hidden="true"></div>
+
+  <!-- =====================================================================
+       1. INTERACTIVE OPENING ENVELOPE / COVER OVERLAY (Structure: nuraida-invitation)
+       ===================================================================== -->
+  <div id="envelope-overlay" class="envelope-overlay" role="dialog" aria-modal="true" aria-label="Свадебное приглашение Aybek & Asel">
+    <div class="envelope-bg">
+      <img src="photos/asel-bw-editorial.jpg" alt="Asel Bridal Editorial" class="envelope-bg-img" />
+      <div class="envelope-bg-scrim"></div>
+    </div>
+
+    <div class="envelope-top-bar">
+      <div class="lang-switcher" role="group" aria-label="Language switcher">
+        <button type="button" class="lang-btn active" data-lang="ru">RU</button>
+        <button type="button" class="lang-btn" data-lang="kg">KG</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+
+    <div class="envelope-content">
+      <p class="envelope-overline" data-i18n="envelope.tagline">ПРИГЛАШЕНИЕ НА СВАДЬБУ · 06 · 11 · 2027</p>
+      <div class="envelope-vertical-line"></div>
+      <h1 class="envelope-names">Aybek <span>&amp;</span> Asel</h1>
+      <p class="envelope-sub" data-i18n="envelope.subtitle">Официальное электронное приглашение</p>
+      <div class="envelope-vertical-line short"></div>
+
+      <button type="button" id="open-invitation-btn" class="envelope-open-btn">
+        <span class="btn-WaxSeal" aria-hidden="true">A&amp;A</span>
+        <span data-i18n="envelope.cta">Нажмите, чтобы открыть приглашение</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       FLOATING HEADER & AUDIO CONTROLS (Structure: nuraida-invitation)
+       ===================================================================== -->
+  <header class="floating-header" id="floating-header">
+    <div class="header-inner">
+      <a href="#hero" class="brand-monogram" aria-label="Aybek & Asel">A <span>&amp;</span> A</a>
+      <div class="lang-switcher" role="group" aria-label="Language switcher">
+        <button type="button" class="lang-btn active" data-lang="ru">RU</button>
+        <button type="button" class="lang-btn" data-lang="kg">KG</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <button type="button" id="audio-toggle-btn" class="floating-audio-btn" aria-label="Включить музыку" title="Включить / Выключить музыку">
+    <span class="audio-bars" aria-hidden="true">
+      <span></span><span></span><span></span><span></span>
+    </span>
+    <span class="audio-label" data-i18n="audio.play">Включить музыку</span>
+  </button>
+
+  <!-- =====================================================================
+       MAIN MOBILE-FIRST EDITORIAL INVITATION SHELL
+       ===================================================================== -->
+  <div class="invitation-shell" id="invitation-shell">
+    <main class="invitation-main">
+
+      <!-- =================================================================
+           SECTION 1: HERO SECTION (#hero)
+           Design: Exact match to reference image (SAVE THE DATE, vertical line,
+           06 NOV 27 stacked numerals, vertical line, OUR WEDDING)
+           ================================================================= -->
+      <section id="hero" class="hero-section">
+        <div class="hero-media">
+          <img src="photos/asel-hero.jpg" alt="Asel in Wedding Dress" id="hero-main-photo" class="hero-img bw-editorial-img" />
+          <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-photo-switcher" aria-label="Переключить стиль фото обложки">
+          <button type="button" class="photo-mode-chip active" data-hero-mode="bw" data-i18n="hero.modeBW">Ч/Б Эдиториал</button>
+          <button type="button" class="photo-mode-chip" data-hero-mode="color" data-i18n="hero.modeColor">В цвете</button>
+        </div>
+
+        <div class="hero-content">
+          <div class="hero-top-meta">
+            <p class="hero-save-date">SAVE THE DATE</p>
+            <p class="hero-couple-caps">AYBEK &amp; ASEL</p>
+            <div class="hero-divider-line"></div>
+          </div>
+
+          <div class="hero-date-stack" aria-label="06 November 2027">
+            <span class="date-num">06</span>
+            <span class="date-month" data-i18n="hero.monthShort">NOV</span>
+            <span class="date-year">27</span>
+          </div>
+
+          <div class="hero-bottom-meta">
+            <div class="hero-divider-line"></div>
+            <p class="hero-bottom-caption" data-i18n="hero.bottomTag">OUR WEDDING</p>
+            <a href="#invitation" class="hero-scroll-link" aria-label="Scroll to invitation">
+              <span data-i18n="hero.scrollText">Открыть приглашение</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           SECTION 2: INVITATION LETTER CARD (#invitation)
+           Design: White floating card on ivory background, watermark 06 11 27,
+           calligraphic script "Aybek & Asel", "6 НОЯБРЯ 2027"
+           ================================================================= -->
+      <section id="invitation" class="section-padded">
+        <article class="white-card invitation-card reveal-on-scroll">
+          <p class="section-overline" data-i18n="invitation.overline">ОСОБОЕ ПРИГЛАШЕНИЕ ДЛЯ ВАС</p>
+          <h2 class="serif-heading" data-i18n="invitation.heading">ДОРОГИЕ ГОСТИ!</h2>
+
+          <p class="invitation-body" data-i18n="invitation.body">
+            Один день в этом году будет для нас особенным, и мы хотим провести его в кругу близких и друзей. С большим удовольствием приглашаем Вас на знаменательный праздник — <strong>нашу свадьбу!</strong>
+          </p>
+
+          <div class="signature-watermark-block">
+            <div class="watermark-date" aria-hidden="true">06 11 27</div>
+            <div class="script-names">Aybek &amp; Asel</div>
+            <p class="signature-subdate" data-i18n="invitation.dateSub">6 НОЯБРЯ 2027</p>
+          </div>
+        </article>
+      </section>
+
+      <!-- =================================================================
+           SECTION 3: PERSONALIZED BRIDAL PHOTOSHOOT SHOWCASE & GALLERY (#gallery)
+           Structure: nuraida-invitation Carousel + Personalized Wedding Dress Photoshoot
+           ================================================================= -->
+      <section id="gallery" class="section-padded">
+        <div class="section-header reveal-on-scroll">
+          <p class="section-overline" data-i18n="gallery.overline">ПЕРСОНАЛЬНАЯ СВАДЕБНАЯ ФОТОСЕССИЯ</p>
+          <h2 class="serif-heading" data-i18n="gallery.heading">НЕВЕСТА · ASEL</h2>
+          <p class="script-subtitle">Bridal editorial collection</p>
+        </div>
+
+        <div class="white-card gallery-card reveal-on-scroll">
+          <div class="gallery-filter-bar">
+            <span class="gallery-filter-label" data-i18n="gallery.filterLabel">Стиль просмотра:</span>
+            <div class="gallery-filter-buttons">
+              <button type="button" class="filter-pill active" data-gallery-filter="color" data-i18n="gallery.colorMode">Оригинал (Цвет)</button>
+              <button type="button" class="filter-pill" data-gallery-filter="bw" data-i18n="gallery.bwMode">Монохром (Ч/Б)</button>
+            </div>
+          </div>
+
+          <div class="carousel-viewport" id="gallery-viewport">
+            <div class="carousel-track" id="gallery-track">
+              <!-- Slide 1 -->
+              <figure class="carousel-slide active" data-index="0">
+                <div class="slide-img-wrap">
+                  <img src="photos/asel-hero.jpg" alt="Asel — Свадебный портрет на террасе виллы" loading="lazy" />
+                </div>
+                <figcaption class="slide-caption">
+                  <span class="slide-title" data-i18n="gallery.slide1Title">Вечерний свет и кружевная фата</span>
+                  <span class="slide-meta">Asel · Bridal Couture 2027</span>
+                </figcaption>
+              </figure>
+
+              <!-- Slide 2 -->
+              <figure class="carousel-slide" data-index="1">
+                <div class="slide-img-wrap">
+                  <img src="photos/asel-full-gown.jpg" alt="Asel — Полный образ в свадебном платье" loading="lazy" />
+                </div>
+                <figcaption class="slide-caption">
+                  <span class="slide-title" data-i18n="gallery.slide2Title">Классический силуэт свадебного платья</span>
+                  <span class="slide-meta">Asel · Fine Art Editorial</span>
+                </figcaption>
+              </figure>
+
+              <!-- Slide 3 -->
+              <figure class="carousel-slide" data-index="2">
+                <div class="slide-img-wrap">
+                  <img src="photos/asel-closeup.jpg" alt="Asel — Крупный портрет невесты" loading="lazy" />
+                </div>
+                <figcaption class="slide-caption">
+                  <span class="slide-title" data-i18n="gallery.slide3Title">Нежность и сияние</span>
+                  <span class="slide-meta">Asel · Bridal Beauty Portrait</span>
+                </figcaption>
+              </figure>
+
+              <!-- Slide 4 -->
+              <figure class="carousel-slide" data-index="3">
+                <div class="slide-img-wrap">
+                  <img src="photos/asel-bw-editorial.jpg" alt="Asel — Чёрно-белый свадебный эдиториал" loading="lazy" />
+                </div>
+                <figcaption class="slide-caption">
+                  <span class="slide-title" data-i18n="gallery.slide4Title">Вневременная монохромная классика</span>
+                  <span class="slide-meta">Asel · Monochrome Edition</span>
+                </figcaption>
+              </figure>
+            </div>
+
+            <button type="button" class="carousel-nav prev" id="gallery-prev" aria-label="Предыдущее фото">&#8592;</button>
+            <button type="button" class="carousel-nav next" id="gallery-next" aria-label="Следующее фото">&#8594;</button>
+          </div>
+
+          <div class="carousel-footer">
+            <div class="carousel-dots" id="gallery-dots" role="tablist">
+              <button type="button" class="dot active" data-slide="0" aria-label="Фото 1"></button>
+              <button type="button" class="dot" data-slide="1" aria-label="Фото 2"></button>
+              <button type="button" class="dot" data-slide="2" aria-label="Фото 3"></button>
+              <button type="button" class="dot" data-slide="3" aria-label="Фото 4"></button>
+            </div>
+            <span class="carousel-counter" id="gallery-counter">1 / 4</span>
+          </div>
+
+          <!-- Thumbnail Grid for instant preview -->
+          <div class="gallery-thumbs">
+            <button type="button" class="thumb-btn active" data-slide="0">
+              <img src="photos/asel-hero.jpg" alt="Кадр 1" />
+            </button>
+            <button type="button" class="thumb-btn" data-slide="1">
+              <img src="photos/asel-full-gown.jpg" alt="Кадр 2" />
+            </button>
+            <button type="button" class="thumb-btn" data-slide="2">
+              <img src="photos/asel-closeup.jpg" alt="Кадр 3" />
+            </button>
+            <button type="button" class="thumb-btn" data-slide="3">
+              <img src="photos/asel-bw-editorial.jpg" alt="Кадр 4" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           SECTION 4: COUNTDOWN & SAVE THE DATE CALENDAR (#countdown & #calendar)
+           Structure: nuraida-invitation Countdown + Week Strip + .ics export
+           ================================================================= -->
+      <section id="countdown" class="section-padded">
+        <div class="white-card calendar-countdown-card reveal-on-scroll">
+          <p class="section-overline" data-i18n="countdown.overline">ДО НАШЕГО ПРАЗДНИКА</p>
+          <h2 class="serif-heading" data-i18n="countdown.heading">ДО ВСТРЕЧИ ОСТАЛОСЬ</h2>
+
+          <div class="countdown-grid" role="timer" aria-live="polite">
+            <div class="countdown-item">
+              <span class="countdown-val" id="cd-days">356</span>
+              <span class="countdown-lbl" data-i18n="countdown.days">дней</span>
+            </div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-item">
+              <span class="countdown-val" id="cd-hours">00</span>
+              <span class="countdown-lbl" data-i18n="countdown.hours">часов</span>
+            </div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-item">
+              <span class="countdown-val" id="cd-minutes">00</span>
+              <span class="countdown-lbl" data-i18n="countdown.minutes">минут</span>
+            </div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-item">
+              <span class="countdown-val" id="cd-seconds">00</span>
+              <span class="countdown-lbl" data-i18n="countdown.seconds">секунд</span>
+            </div>
+          </div>
+
+          <hr class="editorial-hr" />
+
+          <!-- Save the Date Week Strip (November 2027) -->
+          <div id="calendar" class="calendar-block">
+            <p class="section-overline" data-i18n="calendar.overline">СОХРАНИТЕ ЭТУ ДАТУ</p>
+            <h3 class="calendar-month-title" data-i18n="calendar.monthTitle">Ноябрь 2027</h3>
+
+            <div class="week-strip" aria-label="Неделя свадьбы: 6 ноября 2027">
+              <div class="week-day">
+                <span class="day-name" data-i18n="calendar.thu">Чт</span>
+                <span class="day-num">04</span>
+              </div>
+              <div class="week-day">
+                <span class="day-name" data-i18n="calendar.fri">Пт</span>
+                <span class="day-num">05</span>
+              </div>
+              <div class="week-day active" aria-current="date">
+                <span class="day-name" data-i18n="calendar.sat">Сб</span>
+                <span class="day-num">06</span>
+              </div>
+              <div class="week-day">
+                <span class="day-name" data-i18n="calendar.sun">Вс</span>
+                <span class="day-num">07</span>
+              </div>
+              <div class="week-day">
+                <span class="day-name" data-i18n="calendar.mon">Пн</span>
+                <span class="day-num">08</span>
+              </div>
+            </div>
+
+            <p class="calendar-badge-text" data-i18n="calendar.badge">6 ноября 2027 · Суббота · 17:00</p>
+
+            <button type="button" id="download-ics-btn" class="outline-editorial-btn">
+              <span data-i18n="calendar.addBtn">ДОБАВИТЬ В КАЛЕНДАРЬ +</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           SECTION 5: PROGRAM OF THE DAY / TIMELINE (#program)
+           Design: Exact match to reference image "ПРОГРАММА ДНЯ / Timing of our wedding"
+           with vertical line on left, dots, and circular photo badges
+           ================================================================= -->
+      <section id="program" class="section-padded">
+        <div class="section-header reveal-on-scroll">
+          <h2 class="serif-heading" data-i18n="program.heading">ПРОГРАММА ДНЯ</h2>
+          <p class="script-subtitle">Timing of our wedding</p>
+        </div>
+
+        <div class="timeline-container reveal-on-scroll">
+          <div class="timeline-line" aria-hidden="true"></div>
+
+          <!-- Item 1 -->
+          <div class="timeline-row">
+            <div class="timeline-node">
+              <span class="timeline-dot"></span>
+            </div>
+            <div class="timeline-info">
+              <span class="timeline-time">15:30</span>
+              <p class="timeline-desc" data-i18n="program.item1">Сбор гостей · Welcome-фуршет</p>
+            </div>
+          </div>
+
+          <!-- Item 2 (with circular photo badge like reference design) -->
+          <div class="timeline-row has-photo">
+            <div class="timeline-node">
+              <div class="timeline-circle-photo">
+                <img src="photos/asel-closeup.jpg" alt="Бракосочетание" class="bw-img" />
+              </div>
+            </div>
+            <div class="timeline-info">
+              <span class="timeline-time">16:30</span>
+              <p class="timeline-desc" data-i18n="program.item2">Торжественная регистрация брака</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="timeline-row">
+            <div class="timeline-node">
+              <span class="timeline-dot"></span>
+            </div>
+            <div class="timeline-info">
+              <span class="timeline-time">17:00</span>
+              <p class="timeline-desc" data-i18n="program.item3">Фотосессия с молодожёнами. Свободное время</p>
+            </div>
+          </div>
+
+          <!-- Item 4 (with circular photo badge like reference design) -->
+          <div class="timeline-row has-photo">
+            <div class="timeline-node">
+              <div class="timeline-circle-photo">
+                <img src="photos/asel-bw-editorial.jpg" alt="Праздничный банкет" class="bw-img" />
+              </div>
+            </div>
+            <div class="timeline-info">
+              <span class="timeline-time">18:00</span>
+              <p class="timeline-desc" data-i18n="program.item4">Праздничный свадебный банкет</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           SECTION 6: LOCATION & INTERACTIVE MAP (#venue)
+           Design: Stylized "L OO CATION" interlocking header from reference image
+           Venue: Uluu Too Banquet Hall (г. Бишкек, ул. Сухэ-Батора, 5)
+           Link: https://maps.app.goo.gl/ZCR7aL3gAXBYKn867
+           ================================================================= -->
+      <section id="venue" class="section-padded">
+        <div class="venue-block reveal-on-scroll">
+          <p class="section-overline" data-i18n="venue.overline">МЕСТО ТОРЖЕСТВА</p>
+          <h2 class="serif-heading ligature-heading" aria-label="LOCATION">
+            L<span class="interlocked-oo" aria-hidden="true"><span>O</span><span>O</span></span>CATION
+          </h2>
+
+          <h3 class="venue-name" data-i18n="venue.name">Банкетный зал «Улуу Тоо»</h3>
+          <p class="venue-address" data-i18n="venue.address">г. Бишкек, ул. Сухэ-Батора, 5 (Uluu Too Banquet Hall)</p>
+
+          <div class="map-frame-wrapper">
+            <iframe
+              title="Карта — Банкетный зал Улуу Тоо, ул. Сухэ-Батора, 5, Бишкек"
+              src="https://maps.google.com/maps?q=42.8280414,74.6266351&hl=ru&z=16&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              class="venue-map-iframe">
+            </iframe>
+            <div class="map-floating-bar">
+              <a
+                href="https://maps.app.goo.gl/ZCR7aL3gAXBYKn867"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="map-route-chip">
+                <span class="pin-dot" aria-hidden="true"></span>
+                <span data-i18n="venue.directionsChip">Как добраться · Google Maps</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="venue-actions">
+            <a
+              href="https://maps.app.goo.gl/ZCR7aL3gAXBYKn867"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="solid-dark-btn venue-map-btn">
+              <span data-i18n="venue.openMapBtn">ПОСМОТРЕТЬ НА КАРТЕ</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           SECTION 7: DRESS CODE (#dresscode)
+           Design: White card with "DRESS CODE / Dress code", guidelines for
+           gentlemen & ladies, 2-column B&W editorial photo grid + color swatches
+           ================================================================= -->
+      <section id="dresscode" class="section-padded">
+        <article class="white-card dresscode-card reveal-on-scroll">
+          <p class="section-overline" data-i18n="dresscode.overline">ЦВЕТА И СТИЛЬ НАШЕГО ПРАЗДНИКА</p>
+          <h2 class="serif-heading">DRESS CODE</h2>
+          <p class="script-subtitle">Dress code</p>
+
+          <div class="dresscode-copy">
+            <p data-i18n="dresscode.men">
+              Для мужчин уместным будет классический костюм.
+            </p>
+            <p data-i18n="dresscode.women">
+              А милых дам просим выбрать вечерние наряды и избегать белого цвета.
+            </p>
+          </div>
+
+          <!-- Palette Swatches (from nuraida-invitation structure) -->
+          <div class="palette-row" aria-label="Палитра торжества">
+            <div class="swatch-item">
+              <span class="swatch-circle" style="background: #141414;"></span>
+              <span class="swatch-name" data-i18n="dresscode.color1">Чёрный</span>
+            </div>
+            <div class="swatch-item">
+              <span class="swatch-circle" style="background: #4A4845;"></span>
+              <span class="swatch-name" data-i18n="dresscode.color2">Графит</span>
+            </div>
+            <div class="swatch-item">
+              <span class="swatch-circle" style="background: #C8B9A6;"></span>
+              <span class="swatch-name" data-i18n="dresscode.color3">Шампань</span>
+            </div>
+            <div class="swatch-item">
+              <span class="swatch-circle" style="background: #E6DFD5;"></span>
+              <span class="swatch-name" data-i18n="dresscode.color4">Кремовый</span>
+            </div>
+          </div>
+
+          <!-- Two-Column Editorial Photo Grid (exact layout from reference design) -->
+          <div class="dresscode-photo-grid">
+            <div class="dc-photo-box">
+              <img src="photos/asel-hero.jpg" alt="Свадебный букет и детали" class="bw-img" />
+              <div class="dc-love-card" aria-hidden="true">LOVE</div>
+            </div>
+            <div class="dc-photo-box">
+              <img src="photos/asel-full-gown.jpg" alt="Свадебный образ Asel" class="bw-img" />
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- =================================================================
+           SECTION 8: GUEST QUESTIONNAIRE / RSVP (#rsvp)
+           Design: Exact match to "АНКЕТА ГОСТЯ" in the reference design
+           ================================================================= -->
+      <section id="rsvp" class="section-padded">
+        <div class="rsvp-block reveal-on-scroll">
+          <h2 class="serif-heading ligature-heading" data-i18n="rsvp.heading">
+            АНКЕТА Г<span class="interlocked-oo"><span>О</span><span>С</span></span>ТЯ
+          </h2>
+          <p class="rsvp-subtitle" data-i18n="rsvp.subtitle">
+            Нам очень важно ваше присутствие, пожалуйста, заполните анкету ниже
+          </p>
+
+          <form id="rsvp-form" class="editorial-form" novalidate>
+            <div class="form-group">
+              <label for="rsvp-name" class="form-label" data-i18n="rsvp.nameLabel">Ваше имя и фамилия</label>
+              <span class="form-hint" data-i18n="rsvp.nameHint">если будете с парой / семьёй, укажите все имена</span>
+              <input
+                type="text"
+                id="rsvp-name"
+                name="guestName"
+                class="underline-input"
+                placeholder="Асанов Тилек, Асанова Айжан"
+                data-i18n-placeholder="rsvp.namePlaceholder"
+                required />
+            </div>
+
+            <fieldset class="form-group radio-fieldset">
+              <legend class="form-label" data-i18n="rsvp.attendanceLegend">
+                Сможете ли Вы присутствовать на торжестве?
+              </legend>
+
+              <label class="radio-option">
+                <input type="radio" name="attendance" value="yes" checked />
+                <span class="custom-radio"></span>
+                <span class="radio-text" data-i18n="rsvp.attendYes">Да, с удовольствием</span>
+              </label>
+
+              <label class="radio-option">
+                <input type="radio" name="attendance" value="no" />
+                <span class="custom-radio"></span>
+                <span class="radio-text" data-i18n="rsvp.attendNo">К сожалению, не получится</span>
+              </label>
+            </fieldset>
+
+            <button type="submit" class="solid-dark-btn full-width-btn" id="rsvp-submit-btn">
+              <span data-i18n="rsvp.submitBtn">Ответить</span>
+            </button>
+
+            <p id="rsvp-feedback" class="form-feedback" role="status" aria-live="polite" hidden></p>
+          </form>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           SECTION 9: WISHES / GUESTBOOK (#guestbook)
+           Structure: nuraida-invitation Wishes Form + Interactive Wishes Carousel
+           ================================================================= -->
+      <section id="guestbook" class="section-padded">
+        <article class="white-card guestbook-card reveal-on-scroll">
+          <p class="section-overline" data-i18n="guestbook.overline">СЛОВА ОТ ВСЕГО СЕРДЦА</p>
+          <h2 class="serif-heading" data-i18n="guestbook.heading">ОСТАВЬТЕ СВОИ ПОЖЕЛАНИЯ</h2>
+          <p class="guestbook-note" data-i18n="guestbook.note">
+            Каждое тёплое слово — дорогая память для Айбека и Асель.
+          </p>
+
+          <form id="wish-form" class="editorial-form wish-form" novalidate>
+            <div class="form-group">
+              <label for="wish-author" class="form-label" data-i18n="guestbook.authorLabel">Ваше имя</label>
+              <input
+                type="text"
+                id="wish-author"
+                class="underline-input"
+                placeholder="Введите ваше имя"
+                data-i18n-placeholder="guestbook.authorPlaceholder"
+                maxlength="80"
+                required />
+            </div>
+
+            <div class="form-group">
+              <div class="label-row">
+                <label for="wish-message" class="form-label" data-i18n="guestbook.messageLabel">Ваше пожелание</label>
+                <span class="char-counter" id="wish-char-counter">0 / 600</span>
+              </div>
+              <textarea
+                id="wish-message"
+                class="underline-textarea"
+                rows="3"
+                maxlength="600"
+                placeholder="Тёплые слова и благословения молодожёнам…"
+                data-i18n-placeholder="guestbook.messagePlaceholder"
+                required></textarea>
+            </div>
+
+            <p class="wish-disclaimer" data-i18n="guestbook.disclaimer">
+              Ваше пожелание будет видно всем гостям в ленте ниже.
+            </p>
+
+            <button type="submit" id="wish-submit-btn" class="outline-editorial-btn full-width-btn">
+              <span data-i18n="guestbook.submitBtn">ОТПРАВИТЬ ПОЖЕЛАНИЕ</span>
+            </button>
+          </form>
+
+          <!-- Wishes Feed / Carousel (from nuraida-invitation structure) -->
+          <div class="wishes-carousel-block">
+            <div class="wishes-header-bar">
+              <span class="wishes-counter-label" id="wishes-counter">ПОЖЕЛАНИЯ · 1 / 5</span>
+              <div class="wishes-nav-btns">
+                <button type="button" id="wish-prev-btn" class="mini-circle-btn" aria-label="Предыдущее пожелание">&#8249;</button>
+                <button type="button" id="wish-next-btn" class="mini-circle-btn" aria-label="Следующее пожелание">&#8250;</button>
+              </div>
+            </div>
+
+            <blockquote class="wish-card-display" id="wish-card-display">
+              <p class="wish-quote-text" id="wish-quote-text"></p>
+              <footer class="wish-quote-footer">
+                <strong class="wish-quote-author" id="wish-quote-author"></strong>
+                <span class="wish-quote-date" id="wish-quote-date"></span>
+              </footer>
+            </blockquote>
+          </div>
+        </article>
+      </section>
+
+      <!-- =================================================================
+           SECTION 10: SOCIAL SHARING (#share)
+           Structure: nuraida-invitation Share section with Cover / Invitation toggle,
+           WhatsApp, Telegram, Save Story Image, Copy Link
+           ================================================================= -->
+      <section id="share" class="section-padded">
+        <div class="white-card share-card reveal-on-scroll">
+          <p class="section-overline" data-i18n="share.overline">ПРИГЛАСИТЕЛЬНЫЙ ОНЛАЙН</p>
+          <h2 class="serif-heading" data-i18n="share.heading">ПОДЕЛИТЬСЯ ПРИГЛАШЕНИЕМ</h2>
+
+          <div class="share-preview-tabs" role="tablist">
+            <button type="button" class="share-tab active" data-card-mode="cover" data-i18n="share.tabCover">Обложка</button>
+            <button type="button" class="share-tab" data-card-mode="details" data-i18n="share.tabInvite">Приглашение</button>
+          </div>
+
+          <div class="share-card-preview" id="share-card-preview">
+            <img src="photos/asel-bw-editorial.jpg" alt="Aybek & Asel Story Card" class="share-preview-img" id="share-preview-img" />
+            <div class="share-preview-overlay">
+              <span class="sp-top">SAVE THE DATE · 06.11.2027</span>
+              <strong class="sp-names">Aybek &amp; Asel</strong>
+              <span class="sp-venue" id="sp-venue-line">Банкетный зал «Улуу Тоо» · Бишкек</span>
+            </div>
+          </div>
+
+          <div class="share-buttons-grid">
+            <a id="share-whatsapp" href="#" target="_blank" rel="noopener noreferrer" class="share-action-btn">
+              <span>WhatsApp</span>
+            </a>
+            <a id="share-telegram" href="#" target="_blank" rel="noopener noreferrer" class="share-action-btn">
+              <span>Telegram</span>
+            </a>
+            <button type="button" id="download-story-btn" class="share-action-btn">
+              <span data-i18n="share.saveImage">Сохранить фото ↓</span>
+            </button>
+            <button type="button" id="copy-link-btn" class="share-action-btn">
+              <span data-i18n="share.copyLink">Скопировать ссылку</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           SECTION 11: FOOTER & CLOSING SIGNATURE (<footer>)
+           Design: Exact match to bottom of reference photo:
+           "БУДЕМ РАДЫ ВИДЕТЬ ВАС!", watermark "06 11 2027", script "Aybek & Asel"
+           ================================================================= -->
+      <footer class="invitation-footer reveal-on-scroll">
+        <h2 class="serif-heading footer-heading" data-i18n="footer.heading">БУДЕМ РАДЫ ВИДЕТЬ ВАС!</h2>
+
+        <div class="signature-watermark-block footer-watermark">
+          <div class="watermark-date" aria-hidden="true">06 11 2027</div>
+          <div class="script-names">Aybek &amp; Asel</div>
+        </div>
+
+        <a href="#hero" class="back-to-top-btn" data-i18n="footer.backToTop">В НАЧАЛО ↑</a>
+      </footer>
+
+    </main>
+  </div>
+
+  <script src="firebase-config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
