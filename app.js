@@ -810,7 +810,7 @@
       tab.classList.add('active');
       const mode = tab.getAttribute('data-card-mode');
       if (sharePreviewImg) {
-        sharePreviewImg.src = mode === 'cover' ? 'photos/asel-bw-editorial.jpg' : 'photos/asel-hero.jpg';
+        sharePreviewImg.src = mode === 'cover' ? 'photos/asel-bw-editorial.webp' : 'photos/asel-hero.webp';
       }
       if (spVenueLine) {
         spVenueLine.textContent = mode === 'cover'
@@ -851,8 +851,8 @@
   if (downloadStoryBtn) {
     downloadStoryBtn.addEventListener('click', () => {
       const a = document.createElement('a');
-      a.href = sharePreviewImg ? sharePreviewImg.src : 'photos/asel-hero.jpg';
-      a.download = 'Aybek-Asel-Wedding-06-11-2027.jpg';
+      a.href = sharePreviewImg ? sharePreviewImg.src : 'photos/asel-hero.webp';
+      a.download = 'Aybek-Asel-Wedding-06-11-2027.webp';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);

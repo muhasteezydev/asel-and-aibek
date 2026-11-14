@@ -58,7 +58,7 @@ body.envelope-locked {
 .ambient-backdrop {
   position: fixed;
   inset: 0;
-  background-image: url('photos/asel-bw-editorial.jpg');
+  background-image: url('photos/asel-bw-editorial.webp');
   background-size: cover;
   background-position: center;
   filter: grayscale(100%) blur(28px) brightness(0.42);
