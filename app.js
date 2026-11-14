@@ -70,7 +70,7 @@
       'dresscode.color2': 'Графит',
       'dresscode.color3': 'Шампань',
       'dresscode.color4': 'Кремовый',
-      'rsvp.heading': 'АНКЕТА Г<span class="interlocked-oo"><span>О</span><span>С</span></span>ТЯ',
+      'rsvp.heading': 'АНКЕТА ГОСТЯ',
       'rsvp.subtitle': 'Нам очень важно ваше присутствие, пожалуйста, заполните анкету ниже',
       'rsvp.nameLabel': 'Ваше имя и фамилия',
       'rsvp.nameHint': 'если будете с парой / семьёй, укажите все имена',
